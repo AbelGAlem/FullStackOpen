@@ -1,0 +1,38 @@
+h2 {
+    color: greenyellow;
+    font-style: italic;
+}
+
+.people {
+    color: grey;
+    padding-top: 3px;
+    font-size: 15px;
+  }
+
+.error {
+    position: fixed;   
+    top: 1rem;
+    right: 1rem;
+    z-index: 9999; 
+    color: red;
+    background: lightgrey;
+    font-size: 20px;
+    border-style: solid;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.notification {
+    position: fixed;   
+    top: 1rem;
+    right: 1rem;
+    z-index: 9999; 
+    color: white;
+    font-size: 20px;
+    border-style: solid;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    background: rgb(0, 204, 0)
+}
