@@ -75,6 +75,8 @@ const App = () => {
 
   const shownPeople = filter ? persons.filter((person) => person.name.toLowerCase().includes(filter)) : persons
 
+  console.log("Check for latest build being deployed successfully. From npm run deploy:full")
+
   return (
     <div>
       <Notification message={notification} success={success} />
