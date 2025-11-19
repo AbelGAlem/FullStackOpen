@@ -1,4 +1,4 @@
-GET http://localhost:3001/api/persons/ HTTP/1.1
+GET https://fullstackopen-i00u.onrender.com/api/persons/ HTTP/1.1
 
 ###
 GET http://localhost:3001/info HTTP/1.1
