@@ -1,19 +1,28 @@
-GET https://fullstackopen-i00u.onrender.com/api/persons/ HTTP/1.1
+GET http://localhost:3001/api/persons/ HTTP/1.1
 
 ###
 GET http://localhost:3001/info HTTP/1.1
 
 ###
-GET http://localhost:3001/api/persons/1 HTTP/1.1
+GET http://localhost:3001/api/persons/61dc66d2a1169d865fbcb84 HTTP/1.1
 
 ###
-DELETE http://localhost:3001/api/persons/1 HTTP/1.1
+DELETE http://localhost:3001/api/persons/69dc66d2a1169d865fbcb84 HTTP/1.1
 
 ###
 POST http://localhost:3001/api/persons/ HTTP/1.1
 content-type: application/json
 
 {
+    "name": "asdfhg",
+    "number": "12-2222"
+}
+
+###
+PUT http://localhost:3001/api/persons/691db9f304ff0850e15d2cb5 HTTP/1.1
+content-type: application/json
+
+{
     "name": "John",
-    "number": "12333"
+    "number": "240-12344747"
 }
