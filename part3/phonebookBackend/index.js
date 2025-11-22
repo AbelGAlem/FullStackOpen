@@ -2,7 +2,7 @@ require('dotenv').config()
 const express = require('express')
 var morgan = require('morgan')
 const cors = require('cors')
-const Person = require("./models/person")
+const Person = require('./models/person')
 
 const app = express()
 
@@ -16,14 +16,14 @@ morgan.token('body', (req) => {
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms :body'))
 
 // Get all people
-app.get("/api/persons", (request, response) => {
+app.get('/api/persons', (request, response) => {
   Person.find({}).then(person => {
     response.json(person)
   })
 })
 
 // Get phonebook information
-app.get("/info", (request, response) => {
+app.get('/info', (request, response) => {
   Person.countDocuments().then(count => {
     response.send(`
       <p>Phonebook has info for ${count} people</p>
@@ -33,7 +33,7 @@ app.get("/info", (request, response) => {
 })
 
 // Get individual person
-app.get("/api/persons/:id", (request, response, next) => {
+app.get('/api/persons/:id', (request, response, next) => {
   const id = request.params.id
 
   Person.findById(id).then(person => {
@@ -41,26 +41,26 @@ app.get("/api/persons/:id", (request, response, next) => {
       response.json(person)
     }else{
       response.status(404).json({
-        errorMessage : "Could not find person."
+        errorMessage : 'Could not find person.'
       })
     }
   }).catch(error => next(error))
 })
 
 // Create a person
-app.post("/api/persons", (request, response, next) => {
-  const {name, number} = request.body
+app.post('/api/persons', (request, response, next) => {
+  const { name, number } = request.body
 
-  Person.findOne({name}).then(existingPerson => {
-    // Check if person already exist 
+  Person.findOne({ name }).then(existingPerson => {
+    // Check if person already exist
     if(existingPerson){
       return response.status(400).json({
-        errorMessage : "Name already exists."
+        errorMessage : 'Name already exists.'
       })
     }
     if(!name || !number){
       return response.status(400).json({
-        errorMessage : "Please add both name and number."
+        errorMessage : 'Please add both name and number.'
       })
     }
 
@@ -68,7 +68,7 @@ app.post("/api/persons", (request, response, next) => {
       name: name,
       number: number
     })
-  
+
     person.save().then(savedPerson => {
       response.json(savedPerson)
     }).catch(error => next(error))
@@ -76,25 +76,25 @@ app.post("/api/persons", (request, response, next) => {
 })
 
 // Update a person
-app.put("/api/persons/:id", (request, response, next) => {
-  const {name, number} = request.body
+app.put('/api/persons/:id', (request, response, next) => {
+  const { name, number } = request.body
   const id = request.params.id
 
-  Person.findByIdAndUpdate(id, {number: number}, {new: true}).then(result => {
+  Person.findByIdAndUpdate(id, { name: name, number: number }, { new: true }).then(result => {
     if(!result){
       return response.status(404).json({
-        errorMessage : "Could not find person."
+        errorMessage : 'Could not find person.'
       })
     }
-    response.json(result);
+    response.json(result)
   }).catch(error => next(error))
 })
 
 // Delete a person
-app.delete("/api/persons/:id", (request, response, next) => {
+app.delete('/api/persons/:id', (request, response, next) => {
   const id = request.params.id
 
-  Person.findByIdAndDelete(id).then(result => {
+  Person.findByIdAndDelete(id).then(() => {
     response.status(204).end()
   }).catch(error => next(error))
 })

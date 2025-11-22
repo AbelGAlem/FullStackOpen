@@ -21,6 +21,7 @@ h2 {
     border-radius: 5px;
     padding: 10px;
     margin-bottom: 10px;
+    max-width: 40%;
 }
 
 .notification {
@@ -34,5 +35,6 @@ h2 {
     border-radius: 10px;
     padding: 10px;
     margin-bottom: 10px;
-    background: rgb(0, 204, 0)
+    background: rgb(0, 204, 0);
+    max-width: 40%;
 }

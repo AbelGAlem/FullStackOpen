@@ -42,7 +42,7 @@ const App = () => {
           setNewNumber("")
           handleNotification(`${newName} was added successfully.`, true)
       }).catch(e => {
-        handleNotification(`Something went wrong ${e}`, false)
+        handleNotification(`Something went wrong ${e.response.data.error || e}`, false)
       })
   }
 
