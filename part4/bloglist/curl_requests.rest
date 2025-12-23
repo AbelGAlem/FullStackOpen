@@ -7,24 +7,43 @@ GET http://localhost:3001/info HTTP/1.1
 GET http://localhost:3001/api/persons/61dc66d2a1169d865fbcb84 HTTP/1.1
 
 ###
-DELETE http://localhost:3001/api/persons/69dc66d2a1169d865fbcb84 HTTP/1.1
+DELETE http://localhost:3001/api/blogs/6949b6b870f11c8bb3de36e7 HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJvb3QiLCJpZCI6IjY5NDlhYjYwZGJlZDMzN2VjMjQwMTRiMiIsImlhdCI6MTc2NjQzOTMzNX0.EUuXZUHkFZ6shoa31q6AS3Amc9r_O9idtzjDYH3W6Gs
 
 ###
 POST http://localhost:3001/api/blogs/ HTTP/1.1
 content-type: application/json
 
 {
-    "title": "The beginign",
-    "author": "Me",
-    "url": "String",
-    "likes": 4
+    "title": "Unvedrified  posting",
+    "author": "asf",
+    "url": "sdf"
 }
 
 ###
-PUT http://localhost:3001/api/persons/691db9f304ff0850e15d2cb5 HTTP/1.1
+POST http://localhost:3001/api/users/ HTTP/1.1
 content-type: application/json
 
 {
-    "name": "John",
-    "number": "240-12344747"
+    "username": "b",
+    "password": "dab"
 }
+
+###
+POST http://localhost:3001/api/login/ HTTP/1.1
+content-type: application/json
+
+{
+    "username": "root",
+    "password": "asddf"
+}
+
+###
+PUT http://localhost:3001/api/blogs/6949bb233fcb933861e20883 HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJvb3QiLCJpZCI6IjY5NDlhYjYwZGJlZDMzN2VjMjQwMTRiMiIsImlhdCI6MTc2NjQzOTMzNX0.EUuXZUHkFZ6shoa31q6AS3Amc9r_O9idtzjDYH3W6Gs
+
+{
+    "likes": 11
+}
+

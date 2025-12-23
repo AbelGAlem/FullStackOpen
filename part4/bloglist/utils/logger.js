@@ -2,7 +2,7 @@ const info = (...params) => {
   if (process.env.NODE_ENV !== 'test') {
     console.log(...params)
   }else{
-    console.log("In test environment")
+    console.log('In test environment')
   }
 }
 
