@@ -21,8 +21,11 @@ const Blog = ({ blog, handleUpdateBlog, handleDeleteBlog, currentUser }) => {
   console.log(currentUser)
   return(
     <div className="blog">
-      <label>{blog.title} {blog.author} <button onClick={toggleVisibility}>{buttonName}</button></label>
-      <div style={showVisible}>
+      <label className='blog-summary'>
+        {blog.title} {blog.author} 
+        <button onClick={toggleVisibility}>{buttonName}</button>
+      </label>
+      <div className='blog-details' style={showVisible}>
         <p>{blog.url}</p>
         <div>
           <label>{blog.likes} likes </label>
