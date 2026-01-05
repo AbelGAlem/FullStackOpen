@@ -36,7 +36,17 @@ const App = () => {
     try {
       blogFormRef.current.toggleVisibility()
       const response = await blogService.createBlog(newBlog)
-      setBlogs( [...blogs, response].sort((a, b) => b.likes - a.likes) )
+      //TODO: may not be the best fix , maybe do this on backend
+      const blogWithUser = {
+        ...response,
+        user: {
+          ...response.user,
+          username: user.username,
+          name: user.name,
+          id: user.id,
+        },
+      }
+      setBlogs( [...blogs, blogWithUser].sort((a, b) => b.likes - a.likes) )
 
       handleNotification('Added new blog ' + newBlog.title + ' by ' + newBlog.author, true)
     } catch (e) {
@@ -104,7 +114,7 @@ const App = () => {
 
   return (
     <div>
-      <h1>Notes</h1>
+      <h1>Blogs</h1>
       <Notification message={notification} success={success} />
 
       <div>
